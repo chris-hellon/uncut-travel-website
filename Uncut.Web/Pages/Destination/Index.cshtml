@@ -1,0 +1,142 @@
+﻿@page "/destinations/{destinationName}"
+@model Uncut.Web.Pages.Destination.IndexModel
+
+
+@section Styles {
+    <style type="text/css">
+        .small-carousel .carousel-item {
+            height: 450px;
+        }
+
+        .rounded-pill {
+            border-radius: 0rem !important;
+        }
+
+        .header-banner-book-now .col-lg-12.mb-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .header-banner-book-now-title {
+            display: block !important;
+        }
+
+        @@media(max-width: 992px) {
+            .small-carousel .carousel-item {
+                height: 250px;
+            }
+        }
+    </style>
+}
+@{
+    ViewData["Title"] = Model.Destination.Name;
+
+    var index = 0;
+    string modalId = string.Empty;
+    string imageSrc = string.Empty;
+    string altText = string.Empty;
+    //var multiCarouselItems = new List<MultiCarouselItemPartialModel>();
+
+
+    <!--Section: Booking Header-->
+    <div class="custom-height mt-n5 py-3 py-lg-5 bg-primary-dark parallax">
+        <div class="container py-5">
+            <div class="row my-4">
+                <div class="col-12" data-mdb-toggle="animation" data-mdb-animation-start="onLoad" data-mdb-animation="fade-in" data-mdb-animation-delay="200" data-mdb-animation-duration="800">
+                    <h1 class="display-4 fw-bold ls-tight text-white">Destinations</h1>
+                    <h4 class="mb-0 text-secondary">
+                        @Model.Destination.Name
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container custom-mt">
+        <div class="row g-0 mb-3 align-items-center">
+            <div class="col-lg-7 mb-4 mb-lg-0" data-mdb-toggle="animation" data-mdb-animation-start="onLoad" data-mdb-animation="fade-in-left" data-mdb-animation-delay="200" data-mdb-animation-duration="800">
+                <img src="@Model.Destination.ImagePath" class="w-100 rounded-6 h-100" alt="@Model.Destination.Name" />
+            </div>
+            <div class="col-lg-5">
+                <div id="book-now-box" class="card cascading-left rounded-6 shadow-5" data-mdb-toggle="animation" data-mdb-animation-start="onLoad" data-mdb-animation="fade-in-right" data-mdb-animation-delay="400" data-mdb-animation-duration="800">
+                    <div class="card-body px-4 p-4 p-md-5 p-lg-4 p-xl-5">
+                        <div class="container p-3 bg-primary rounded-pill shadow-2-strong text-center">
+                            <div class="row g-0">
+                                <div class="col-lg-12 text-white">
+                                    <h3 class="mb-4 text-white">Book a trip</h3>
+                                    <p>Are you ready to book a trip?</p>
+                                    <p>Contact us today with your requested dates, and a member of our team will be in touch.</p>
+                                </div>
+                                <div class="col-lg-12 mb-2 mb-lg-0">
+                                    <a role="button" class="btn btn-secondary mt-3" asp-page="/Contact/Index">
+                                        Enquire Now <i class="fas fa-angle-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Section: Booking Header-->
+
+    <!--Section: Short Introduction-->
+    <div class="container mt-5 position-relative px-3" data-mdb-animation-show-on-load="false" data-mdb-toggle="animation" data-mdb-animation-start="onScroll" data-mdb-animation-on-scroll="once" data-mdb-animation="fade-in" data-mdb-animation-delay="200" data-mdb-animation-duration="1200">
+        <section class="text-center">
+            <div class="row">
+                <div class="col-lg-12 pb-5">
+                    @Html.Raw(Model.Destination.Description)
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--Section: Short Introduction-->
+
+
+    <!--Section: Getting There-->
+    <div class="container-fluid py-5 bg-primary">
+        <div class="container position-relative p-3 text-white">
+            <section class="text-center">
+                <div class="row">
+                    <div class="col-lg-6 mb-3 mb-lg-0" data-mdb-toggle="animation" data-mdb-animation-start="onScroll" data-mdb-animation-on-scroll="once" data-mdb-animation="fade-in-left" data-mdb-animation-delay="200" data-mdb-animation-duration="800">
+                        <h3 class="mb-4 text-white">Getting There</h3>
+                        @Html.Raw(Model.Destination.Directions)
+                        <a class="btn btn-secondary mt-3" asp-page="/Service/Index" asp-route-serviceName="airport-transfer">Book A Transfer Now <i class="fas fa-angle-right ms-1"></i></a>
+                    </div>
+                    <div class="col-lg-6" data-mdb-toggle="animation" data-mdb-animation-start="onScroll" data-mdb-animation-on-scroll="once" data-mdb-animation="fade-in-right" data-mdb-animation-delay="400" data-mdb-animation-duration="800">
+                        <iframe id="google-map" class="w-100 h-100 m-0 p-0" frameborder="0" style="border:0" src="@($"https://www.google.com/maps/embed/v1/place?q=place_id:{Model.Destination.GoogleMapsKey}&key=AIzaSyAiYLmSCzYGXOdsJwXiu8GZ9c9UnHTtlgQ")" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--Section: Getting There-->
+
+    @Html.DisplayFor(x => x.ToursCards)
+
+
+    if (Model.RelatedDestinationsCards != null)
+    {
+        <section id="relatedDestinations" class="pb-5 position-relative text-center bg-light">
+            @Html.DisplayFor(x => x.RelatedDestinationsCards)
+        </section>
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

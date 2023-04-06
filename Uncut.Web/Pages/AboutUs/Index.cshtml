@@ -1,0 +1,58 @@
+﻿@page "/about-us"
+@model Uncut.Web.Pages.AboutUs.IndexModel
+@{ViewData["Title"] = "About Us"; }
+
+<div class="custom-height mt-n5 py-3 py-lg-5 bg-primary-dark">
+    <div class="container py-5">
+        <div class="row my-4">
+            <div class="col-12 has-parallax-scroll">
+                <h1 class="display-4 fw-bold ls-tight text-white">@ViewData["Title"]</h1>
+                @if (ViewData["Subtitle"] != null)
+                {
+                    <h4 class="mb-0 text-gray text-shadow-0">@ViewData["SubTitle"]</h4>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Section: Locations-->
+<div class="container bg-white rounded-6 position-relative pt-3 px-3 custom-mt">
+    <div class="row">
+        <h5>About Us</h5>
+        <p>
+            We are a well-established travel brand providing innovative and inspiring travel experiences for groups, families, couples, and friends. We aim to create truly wonderful experiences by exploring your deepest passions down to the simplest request, combining that with a beautiful destination and our deep knowledge and understanding of Vietnam as a travel destination, to create the perfect tailor-made itinerary to fit you.
+        </p>
+        <p>
+            Uncut has operated in the travel and hospitality industry in Vietnam since 2004 when we began sharing our love and knowledge of Vietnam with fellow travellers around the world
+        </p>
+        <p>
+            We want to understand your wants and needs to write you the perfect travel prescription, right down to the last detail. No matter where you’re located, whether your journey is for business or pleasure, two days or two months, let us design once-in-a-lifetime journeys so you can appreciate luxury in all its forms.
+        </p>
+        <h5>Vietnam Through Our Eyes</h5>
+        <p>
+            Vietnam is a country with immense geographic and cultural diversity, The heritage, the colours and the natural beauty make for a new and beautifully rich experience every day.
+        </p>
+        <p>
+            Hanoi you will experience the old-world charm. In Hue you'll uncover ancient relics and in the Mekong you'll become part of the family. you will visit the mountainous villages like Sapa, explore the jaw dropping Ha Giang province, see the world famous Halong bay and walk the vibrant streets of Saigon and don't forget mixing with the friendly locals who make Vietnam a place top return to, time and time again. come and experience Vietnam with us and discover why we fell in love with it.
+        </p>
+        <p>
+            The magnitude of experiences and activities at your disposal here in Vietnam is unmatched, from luxury cruises, exotic islands, romantic mountain top villages, to some of the best golf courses in the world, adventure theme parks and a diverse natural landscape that changes drastically throughout your journey through this wonderful country.
+        </p>
+
+    </div>
+
+
+</div>
+
+<div class="container mt-4 mb-2 position-relative px-3">
+    <div class="row p-0">
+        <h3 class="mb-4 mt-4 text-center">Sightseeing</h3>
+        <div class="bg-image hover-overlay rounded-0 h-100">
+            <img src="https://vietnambackpackerhostels.azureedge.net/uncuttravel/sightseeing.jpg" class="w-100 h-100" alt="Page section card background image" />
+            <a asp-page="/TourCategory/Index" asp-route-tourCategoryName="sightseeing-tours">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Travaloud\Travaloud.Base\Travaloud.Infrastructure\Travaloud.Infrastructure.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Travaloud\Travaloud.Base\Travaloud.Web\Travaloud.Web.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Pages\Home\" />
+    <None Remove="Pages\Shared\" />
+    <None Remove="Pages\Shared\DisplayTemplates\" />
+    <None Remove="Pages\Destinations\" />
+    <None Remove="Pages\Destination\" />
+    <None Remove="Pages\ToursAndActivities\" />
+    <None Remove="Pages\Tour\" />
+    <None Remove="Pages\TourCategory\" />
+    <None Remove="Pages\Tour\Shared\" />
+    <None Remove="Pages\AboutUs\" />
+    <None Remove="Pages\Contact\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Home\" />
+    <Folder Include="Pages\Shared\" />
+    <Folder Include="Pages\Shared\DisplayTemplates\" />
+    <Folder Include="Pages\Destinations\" />
+    <Folder Include="Pages\Destination\" />
+    <Folder Include="Pages\ToursAndActivities\" />
+    <Folder Include="Pages\Tour\" />
+    <Folder Include="Pages\TourCategory\" />
+    <Folder Include="Pages\Tour\Shared\" />
+    <Folder Include="Pages\AboutUs\" />
+    <Folder Include="Pages\Contact\" />
+  </ItemGroup>
+</Project>

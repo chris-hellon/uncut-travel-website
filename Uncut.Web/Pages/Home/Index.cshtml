@@ -1,0 +1,71 @@
+﻿@page "/"
+@model Uncut.Web.Pages.Home.IndexModel
+
+@Html.DisplayFor(x => x.CarouselComponent)
+
+<div class="container-fluid px-0 bg-light">
+    <div class="container py-5 has-parallax-scroll">
+
+        <!--Section: Design Block-->
+        <section class="shadow-5 bg-white p-5">
+
+            <h3 class="text-center mb-5 text-primary-dark">Experience Vietnam</h3>
+
+
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="row">
+                        <div class="col-2 text-center">
+                            <i class="fas fa-route fa-2x text-secondary"></i>
+                        </div>
+                        <div class="col-10 float-end">
+                            <h5 class="text-primary-dark">Tours & Activities</h5>
+                            <p>
+                                We understand that every traveler has unique preferences and interests when it comes to exploring new destinations. That's why our travel company offers a wide range of tour options and activities all across the country.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="row">
+                        <div class="col-2 text-center">
+                            <i class="fas fa-map-location-dot fa-2x text-secondary"></i>
+                        </div>
+                        <div class="col-10 float-end">
+                            <h5 class="text-primary-dark">Destinations</h5>
+                            <p>
+                                At our travel company, we take pride in providing a diverse range of travel options and tours that cater to every type of traveler. Whether you're looking to explore the bustling cities, quaint towns, or breathtaking natural landscapes, we've got you covered.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-0">
+                    <div class="row">
+                        <div class="col-2 text-center">
+                            <i class="fas fa-globe fa-2x text-secondary"></i>
+                        </div>
+                        <div class="col-10 float-end">
+                            <h5 class="text-primary-dark">Services</h5>
+                            <p>
+                                We believe that everyone's travel needs are unique and we are here to help make your dream trip a reality. Our team of experts will work with you to create a personalized itinerary that takes into account your preferences and requirements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--Section: Design Block-->
+
+    </div>
+</div>
+<section id="tours" class="container pt-5 pb-5 position-relative text-center">
+    @Html.DisplayFor(x => x.PromotedToursCards)
+    @Html.DisplayFor(x => x.ToursCards)
+</section>
+<section id="destinations" class="container-fluid position-relative text-center bg-light">
+    <div class="container py-5">
+        @Html.DisplayFor(x => x.DestinationsCards)
+    </div>
+</section>
+

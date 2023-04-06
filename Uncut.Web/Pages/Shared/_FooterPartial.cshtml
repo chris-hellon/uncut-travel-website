@@ -1,0 +1,74 @@
+﻿@model TravaloudBasePageModel
+
+<!--Section: Design your trip-->
+<partial name="_DesignYourTripPartial" />
+<!--Section: Design your trip-->
+
+<footer class="bg-primary text-center text-white">
+    <div class="container p-4">
+        <section class="mb-4">
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/profile.php?id=100087273129916" role="button">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/uncuttravelvietnam" role="button">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </section>
+        <section>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5><a asp-page="/Destinations/Index" class="text-white">Destinations</a></h5>
+
+                    <ul class="list-unstyled mb-0 row">
+                        @if (Model.Destinations.Any())
+                        {
+                            foreach (var destination in Model.Destinations)
+                            {
+                                <li class="col-lg-6">
+                                    <a asp-page="/Destination/Index" asp-route-destinationName="@destination.FriendlyUrl" class="text-white">@destination.Name</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5><a class="text-white" asp-page="/ToursAndActivities/Index">Tours & Activities</a></h5>
+
+                    <ul class="list-unstyled mb-0">
+                        @if (Model.ToursWithCategories.Any())
+                        {
+                            foreach (var tourCategory in Model.ToursWithCategories)
+                            {
+                                if (!tourCategory.CategoryId.HasValue && !tourCategory.ParentTourCategoryId.HasValue)
+                                {
+                                    <li>
+                                        <a asp-page="/TourCategory/Index" asp-route-tourCategoryName="@tourCategory.FriendlyUrl" class="text-white">@tourCategory.Name</a>
+                                    </li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5><a asp-page="/Services/Index" asp-route-category="" class="text-white">Services</a></h5>
+
+                    <ul class="list-unstyled mb-0">
+                        @if (Model.Services.Any())
+                        {
+                            foreach (var service in Model.Services)
+                            {
+                                <li>
+                                    <a asp-page="/Service/Index" asp-route-serviceName="@service.FriendlyUrl" class="text-white">@service.Title</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="text-center p-3 header-font text-white bg-primary mb-0">
+        © @DateTime.Now.Year
+        Uncut Travel & Hospitality
+    </div>
+</footer>
